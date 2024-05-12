@@ -16,4 +16,15 @@ class Llama2Test {
         System.out.println(reponse);
         Assertions.assertNotNull(reponse);
     }
+
+    @Test
+    @DisplayName("Doit renvoyer une réponse en streaming à une question plus complexe")
+    void repondAEnStreaming() {
+        // When
+        String reponse = Llama2.repondA("Give me instructions to create Spring Boot Microservice project");
+
+        // Then
+        System.out.println(reponse);
+        Assertions.assertNotNull(reponse);
+    }
 }
