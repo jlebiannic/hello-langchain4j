@@ -7,8 +7,8 @@ import dev.langchain4j.data.segment.TextSegment;
 import dev.langchain4j.memory.ChatMemory;
 import dev.langchain4j.memory.chat.MessageWindowChatMemory;
 import dev.langchain4j.model.chat.StreamingChatLanguageModel;
+import dev.langchain4j.model.embedding.AllMiniLmL6V2EmbeddingModel;
 import dev.langchain4j.model.embedding.EmbeddingModel;
-import dev.langchain4j.model.embedding.bge.small.en.v15.BgeSmallEnV15QuantizedEmbeddingModel;
 import dev.langchain4j.model.ollama.OllamaStreamingChatModel;
 import dev.langchain4j.model.output.Response;
 import dev.langchain4j.rag.content.retriever.EmbeddingStoreContentRetriever;
@@ -25,7 +25,7 @@ import java.util.concurrent.CompletableFuture;
 /**
  * https://docs.langchain4j.dev/tutorials/rag
  * https://www.sivalabs.in/langchain4j-retrieval-augmented-generation-tutorial/
- * https://github.com/sivaprasadreddy/java-ai-demos/blob/3e5357dc921fd4f6781e0a7aa30a7d57051e3648/langchain4j-demos/src/test/java/com/sivalabs/demo/langchain4j/RAGDemo.java#L67
+ * https://github.com/sivaprasadreddy/java-ai-demos/blob/main/langchain4j-demos/src/test/java/com/sivalabs/demo/langchain4j/RAGDemo.java
  */
 public class ChatServiceRAG implements UserStreamCommunication, ModelCommunication {
     private static final String OLLAMA_HOST = "http://localhost:11434";
@@ -37,7 +37,7 @@ public class ChatServiceRAG implements UserStreamCommunication, ModelCommunicati
     public ChatServiceRAG(Path documentsPath) {
         // Documents
         List<Document> documents = FileSystemDocumentLoader.loadDocuments(documentsPath);
-        EmbeddingModel embeddingModel = new BgeSmallEnV15QuantizedEmbeddingModel();
+        EmbeddingModel embeddingModel = new AllMiniLmL6V2EmbeddingModel();
 
         InMemoryEmbeddingStore<TextSegment> embeddingStore = new InMemoryEmbeddingStore<>();
         //EmbeddingStoreIngestor.ingest(documents, embeddingStore);
