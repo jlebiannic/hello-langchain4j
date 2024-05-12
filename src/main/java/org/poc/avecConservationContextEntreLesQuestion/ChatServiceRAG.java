@@ -7,6 +7,8 @@ import dev.langchain4j.data.segment.TextSegment;
 import dev.langchain4j.memory.ChatMemory;
 import dev.langchain4j.memory.chat.MessageWindowChatMemory;
 import dev.langchain4j.model.chat.StreamingChatLanguageModel;
+import dev.langchain4j.model.embedding.EmbeddingModel;
+import dev.langchain4j.model.embedding.bge.small.en.v15.BgeSmallEnV15QuantizedEmbeddingModel;
 import dev.langchain4j.model.ollama.OllamaStreamingChatModel;
 import dev.langchain4j.model.output.Response;
 import dev.langchain4j.rag.content.retriever.EmbeddingStoreContentRetriever;
@@ -35,9 +37,17 @@ public class ChatServiceRAG implements UserStreamCommunication, ModelCommunicati
     public ChatServiceRAG(Path documentsPath) {
         // Documents
         List<Document> documents = FileSystemDocumentLoader.loadDocuments(documentsPath);
+        EmbeddingModel embeddingModel = new BgeSmallEnV15QuantizedEmbeddingModel();
 
         InMemoryEmbeddingStore<TextSegment> embeddingStore = new InMemoryEmbeddingStore<>();
-        EmbeddingStoreIngestor.ingest(documents, embeddingStore);
+        //EmbeddingStoreIngestor.ingest(documents, embeddingStore);
+
+        EmbeddingStoreIngestor ingestor = EmbeddingStoreIngestor.builder()
+                .embeddingModel(embeddingModel)
+                .embeddingStore(embeddingStore)
+                .build();
+        ingestor.ingest(documents);
+
 
         // LLM
         this.languageModel = connectModel(OLLAMA_HOST, LLAMA_2);

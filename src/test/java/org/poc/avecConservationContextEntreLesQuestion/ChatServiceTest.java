@@ -21,4 +21,15 @@ class ChatServiceTest {
         // Then
         Assertions.assertNotNull(reponse.get().content().text());
     }
+
+    @Test
+    @DisplayName("Doit répondre à une question SANS le mode RAG")
+    void askNoRAG() throws ExecutionException, InterruptedException {
+        // When
+        ChatService chatService = new ChatService();
+        CompletableFuture<Response<AiMessage>> reponse =
+                chatService.ask("Explique la catégorie 450 'Déficits antérieurs restant à imputer' dans l'annexe 2044. Comment renseigner les colonnes A et B ?");
+        // Then
+        Assertions.assertNotNull(reponse.get().content().text());
+    }
 }
