@@ -53,5 +53,43 @@ class ChatServiceRAGTest {
              co-owners subject to mutual taxation, or in case of an authorized abandonment of the lease,
              the imputation of deficits will be reconsidered.
         * */
+
+        // Ou
+
+        /*
+        * The category "Déficits antérieurs restant à imputer" in Annex 2044 refers to the portion of previous year's deficits that have not been yet allocated to imputeable income. The information provided in columns A and B of this annex are used to calculate this amount.
+
+To determine the part of the deficits that are not yet imputed, you need to refer to your previous year's revenues. The formula for calculating this amount is:
+
+Part of deficits not yet imputed = Deficits at end of year - Total imputable income at end of year
+
+Where:
+
+* Deficits at end of year refers to the amount of deficits that were outstanding as of the end of the previous year.
+* Total imputable income at end of year refers to the total imputable income that was declared in your tax return for the previous year.
+
+Once you have calculated the part of the deficits that are not yet imputed, you can report this amount in column A of Annex 2044.
+
+For example, let's say that as of December 31, 2022, you had a deficit of $10,000 and your total imputable income for the previous year was $50,000. To calculate the part of the deficits that are not yet imputed, you would use the following formula:
+
+Part of deficits not yet imputed = $10,000 - $50,000 = $40,000
+
+Therefore, you would report $40,000 in column A of Annex 2044.
+
+As for column B, it refers to the total amount of déficits antérieurs non encore imputés au 31 décembre 2022. This amount is calculated by adding up all the parts of deficits not yet imputed for each year since 2017, as reported in columns A of Annex 2044.
+
+For example, let's say that as of December 31, 2022, you had reported the following amounts in columns A of Annex 2044 for each year since 2017:
+
+* 2017: $20,000
+* 2018: $30,000
+* 2019: $40,000
+* 2020: $50,000
+
+To calculate the total amount of déficits antérieurs non encore imputés au 31 décembre 2022, you would add up all these amounts:
+
+Total amount of déficits antérieurs non encore imputés = $20,000 + $30,000 + $40,000 + $50,000 = $170,000
+
+Therefore, you would report $170,000 in column B of Annex 2044.
+        * */
     }
 }
